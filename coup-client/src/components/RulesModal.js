@@ -44,37 +44,37 @@ export default class RulesModal extends Component {
         <div className="RulesContent">
             <h2>Rules</h2>
             <p>2-6 players</p>
-            <p>On your turn, you may choose an action to play. The action you choose may or may not correspond to the influences that you possess. 
+            <p>On your turn, you may choose an action to play. The action you choose may or may not correspond to the privileges that you possess. 
                 For the action that you choose, other players may potentially block or challenge it. </p>
-            <p><b>Challenge</b>: When a player declares an action they are declaring to the rest of the players that they have a certain influence, 
-                and any other player can challenge it. When a player is challenged, the challenged player must reveal the correct influence 
-                associated with their action. If they reveal the correct influence, the challenger player will lose an influence. However, 
-                if they fail to reveal the correct influence the challenged player will lose their incorrectly revealed influence.</p>
-            <p><b>Block</b>: When the any of the actions "Foreign Aid", "Steal", and "Assasinate" are used, they can be blocked. Once again, 
-                any player can claim to have the correct influence to block. However, blocks can also be challenged by any player. If a block 
+            <p><b>Challenge</b>: When a player declares an action they are declaring to the rest of the players that they have a certain privilege, 
+                and any other player can challenge it. When a player is challenged, the challenged player must reveal the correct privilege 
+                associated with their action. If they reveal the correct privilege, the challenger player will lose a privilege. However, 
+                if they fail to reveal the correct privilege the challenged player will lose their incorrectly revealed privilege.</p>
+            <p><b>Block</b>: When any of the actions "Guest Access", "Transfer Tokens", and "Deactivate User" are used, they can be blocked. Once again, 
+                any player can claim to have the correct privilege to block. However, blocks can also be challenged by any player. If a block 
                 fails, the original action will take place.
             </p>
             <p>
-                If a player loses all their influences, they are out of the game. The last player standing wins!
+                If a player loses all their privileges, they are out of the game. The last player standing wins!
             </p>
             <p>
                 At this time, if a player disconnects, the game must be recreated.
             </p>
-            <h2>Influences</h2>
-            <h3>Captain</h3>
-            <p><b id="captain-color">STEAL</b>: Steal 2 coins from a target. Blockable by <hl id="captain-color">Captain</hl> or <hl id="ambassador-color">Ambassador</hl>. Can block <hl id="captain-color">STEAL</hl></p>
-            <h3>Assassin</h3>
-            <p><b id="assassin-color">ASSASSINATE</b>: Pay 3 coins to choose a target to assassinate (target loses an influence). Blockable by <hl id="contessa-color">Contessa</hl>.</p>
-            <h3>Duke</h3>
-            <p><b id="duke-color">TAX</b>: Collect 3 coins from the treasury. Not blockable. Can block Foreign Aid.</p>
-            <h3>Ambassador</h3>
-            <p><b id="ambassador-color">EXCHANGE</b>: Draw 2 influences into your hand and pick any 2 influences to put back. Not blockable. Can block <hl id="captain-color">STEAL</hl></p>
-            <h3>Contessa</h3>
-            <p><b id="contessa-color">BLOCK ASSASSINATION</b>: Can block <b id="assassin-color">assassinations</b>. Not blockable.</p>
+            <h2>Privileges</h2>
+            <h3>PM</h3>
+            <p><b id="pm-color">TRANSFER TOKENS</b>: Transfer 2 tokens from a target. Blockable by <hl id="pm-color">PM</hl> or <hl id="contractor-color">Contractor</hl>. Can block <hl id="pm-color">TRANSFER TOKENS</hl></p>
+            <h3>System Admin</h3>
+            <p><b id="system_admin-color">DEACTIVATE USER</b>: Pay 3 tokens to choose a target to deactivate (target loses a privilege). Blockable by <hl id="root_user-color">Root User</hl>.</p>
+            <h3>Admin</h3>
+            <p><b id="admin-color">COLLECT TOKENS</b>: Collect 3 tokens from the treasury. Not blockable. Can block Guest Access.</p>
+            <h3>Contractor</h3>
+            <p><b id="contractor-color">EXCHANGE ROLES</b>: Draw 2 privileges into your hand and pick any 2 privileges to put back. Not blockable. Can block <hl id="pm-color">TRANSFER TOKENS</hl></p>
+            <h3>Root User</h3>
+            <p><b id="root_user-color">BLOCK DEACTIVATION</b>: Can block <b id="system_admin-color">deactivations</b>. Not blockable.</p>
             <h3>Other Actions</h3>
-            <p><b>INCOME</b>: Collect 1 coins from the treasury.</p>
-            <p><b>FOREIGN AID</b>: Collect 2 coins from the treasury. Blockable by <hl id="duke-color">Duke</hl>.</p>
-            <p><b>COUP</b>: Pay 7 coins and choose a target to lose an influence. If a player starts their turn with 10 or more coins, they must Coup. Not Blockable.</p>
+            <p><b>BASIC ACCESS</b>: Collect 1 token from the treasury.</p>
+            <p><b>GUEST ACCESS</b>: Collect 2 tokens from the treasury. Blockable by <hl id="admin-color">Admin</hl>.</p>
+            <p><b>DELETE USER</b>: Pay 7 tokens and choose a target to lose a privilege. If a player starts their turn with 10 or more tokens, they must Delete User. Not Blockable.</p>
         </div>
     </div>
     </ReactModal>

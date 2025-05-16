@@ -57,7 +57,7 @@ buildNameIndexMap = (players) => {
 }
 
 buildPlayers = (players) => {
-    colors = ['#73C373', '#7AB8D3', '#DD6C75', '#8C6CE6', '#EA9158', '#CB8F8F', '#FFC303']
+    colors = ['#FFC425', '#F68B1F', '#009DDF', '#00A77E', '#D13E80', '#3C4185'] // Quire color palette
     shuffleArray(colors);
 
     players.forEach(x => {

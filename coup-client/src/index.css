@@ -18,20 +18,20 @@ p, b, h1,h2,h3{
 input {
   font-size: 20px;
   padding-left: 2px;
-  border: 2px solid #BCBCBC;
+  border: 2px solid #FFC425;
   border-radius: 5px;
   outline: none;
   transition: 0.5s;
 }
 input[type=text]:focus {
-  border: 2px solid #555;
+  border: 2px solid #00030B;
 }
 button{
   cursor: pointer;
 }
 
 .version-number {
-  color: #BCBCBC;
+  color: #00030B;
   font-size: 10px;
   position: absolute;
   bottom: 0px;
@@ -41,16 +41,16 @@ button{
 .website-link {
   cursor: pointer;
   text-decoration: none;
-  color: #000000;
+  color: #00030B;
   font-weight: 600;
-  background-color: #F2F2F2;
+  background-color: #FFC425;
   border-radius: 5px;
   padding: 5px;
   transition-duration: 0.3s;
 }
 .website-link:hover{
   color: #FFFFFF;
-  background-color: #2B2B2B;
+  background-color: #00030B;
 }
 
 .createGameContainer, .joinGameContainer {
@@ -94,10 +94,10 @@ button{
   padding-bottom: 10px;
   min-width: 100px;
   border-radius: 5px;
-  font-family: 'Muli', sans-serif;
-  background-color: #73C373;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #FFC425;
   border: none;
-  color: white;
+  color: #00030B;
   margin: 10px;
   text-align: center;
   text-decoration: none;
@@ -118,10 +118,10 @@ button{
   min-width: 100px;
   height: 30px;
   border-radius: 5px;
-  font-family: 'Muli', sans-serif;
-  background-color: #73C373;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #FFC425;
   border: none;
-  color: white;
+  color: #00030B;
   margin: 20px;
   margin-bottom: 0px;
   text-align: left;
@@ -131,17 +131,16 @@ button{
 }
 
 .createButton:disabled, .joinButton:disabled{
-  background-color: #2B2B2B;
+  background-color: #00030B;
+  color: #FFFFFF;
 }
 
 .startGameButton{
-  /* min-width: 100px; */
-  /* height: 30px; */
   border-radius: 5px;
-  font-family: 'Muli', sans-serif;
-  background-color: #5FC15F;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #FFC425;
   border: none;
-  color: white;
+  color: #00030B;
   margin: 20px;
   margin-bottom: 0px;
   text-align: left;
@@ -159,15 +158,13 @@ button{
 }
 
 .readyUnit {
-  /* min-width: 150px;
-  max-width: 200px; */
   width: 200px;
   border-radius: 5px;
-  font-family: 'Muli', sans-serif;
-  background-color: #73C373;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #FFC425;
   border: none;
   padding-left: 5px;
-  color: white;
+  color: #00030B;
   text-align: left;
   text-decoration: none;
   font-size: 18px;

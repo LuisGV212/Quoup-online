@@ -295,34 +295,34 @@
     font-size: 12px;
 }
 #admin {
-    background-color: #D55DC7;
+    background-color: #FFC425; /* Quire Yellow */
 }
 #system_admin {
-    background-color: #2B2B2B;
+    background-color: #00030B; /* Quire Black */
 }
 #pm {
-    background-color: #80C6E5;
+    background-color: #009DDF; /* Blend Blue */
 }
 #root_user {
-    background-color: #E35646;
+    background-color: #F68B1F; /* Blend Orange */
 }
 #contractor {
-    background-color: #B4CA1F;
+    background-color: #00A77E; /* Blend Green */
 }
 #admin-color {
-  color: #D55DC7;
+  color: #FFC425; /* Quire Yellow */
 }
 #system_admin-color {
-  color: #2B2B2B;
+  color: #00030B; /* Quire Black */
 }
 #pm-color {
-  color: #80C6E5;
+  color: #009DDF; /* Blend Blue */
 }
 #root_user-color {
-  color: #E35646;
+  color: #F68B1F; /* Blend Orange */
 }
 #contractor-color {
-  color: #B4CA1F;
+  color: #00A77E; /* Blend Green */
 }
 .DecisionTitle {
     text-align: left;
