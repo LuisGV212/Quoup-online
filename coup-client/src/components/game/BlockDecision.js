@@ -29,14 +29,13 @@ export default class BlockDecision extends Component {
 
     block = (block, claim = null) => {
         this.props.closeOtherVotes('block')
-        // res.prevAction.action, res.prevAction.target, res.prevAction.source, res.counterAction, res.blockee, res.blocker, res.isBlocking
         let resClaim
         if(claim != null) {
             resClaim = claim;
-        } else if(block === 'block_foreign_aid') {
-            resClaim = 'duke'
-        } else if(block === 'block_assassinate') {
-            resClaim = 'contessa'
+        } else if(block === 'block_guest_access') {
+            resClaim = 'admin'
+        } else if(block === 'block_deactivate') {
+            resClaim = 'root_user'
         } else {
             console.error('unknown claim, line 40')
         }
@@ -77,21 +76,21 @@ export default class BlockDecision extends Component {
         let control = null
         let pickClaim = null
         if(!this.state.isPickingClaim) {
-            if(this.props.action.action === 'foreign_aid') {
+            if(this.props.action.action === 'guest_access') {
                 control = <>
-                <p><b>{this.props.action.source}</b> is trying to use Foreign Aid</p>
-                <button onClick={() => this.block('block_foreign_aid')}>Block Foreign Aid</button>
+                <p><b>{this.props.action.source}</b> is trying to use Guest Access</p>
+                <button onClick={() => this.block('block_guest_access')}>Block Guest Access</button>
                 </>
-            } else if(this.props.action.action === 'steal') {
-                control = <button onClick={() => this.pickClaim('block_steal')}>Block Steal</button>
-            } else if(this.props.action.action === 'assassinate') {
-                control = <button onClick={() => this.block('block_assassinate')}>Block Assassination</button>
+            } else if(this.props.action.action === 'transfer_tokens') {
+                control = <button onClick={() => this.pickClaim('block_transfer')}>Block Transfer</button>
+            } else if(this.props.action.action === 'deactivate_user') {
+                control = <button onClick={() => this.block('block_deactivate')}>Block Deactivation</button>
             }
         } else {
             pickClaim = <>
-                <p>To block steal, do you claim Ambassador or Captain?</p>
-                <button onClick={() => this.block(this.state.decision, 'ambassador')}>Ambassador</button>
-                <button onClick={() => this.block(this.state.decision, 'captain')}>Captain</button>
+                <p>To block transfer, do you claim Contractor or PM?</p>
+                <button onClick={() => this.block(this.state.decision, 'contractor')}>Contractor</button>
+                <button onClick={() => this.block(this.state.decision, 'pm')}>PM</button>
             </>
         }
         

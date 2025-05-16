@@ -30,19 +30,19 @@ export default class ActionDecision extends Component {
 
     deductCoins = (action) => {
         console.log(this.props.money, action)
-        if(action === 'assassinate') {
+        if(action === 'deactivate_user') {
             if(this.props.money >= 3) {
                 this.props.deductCoins(3);
-                this.pickingTarget('assassinate');
+                this.pickingTarget('deactivate_user');
             } else {
-                this.setState({ actionError: 'Not enough coins to assassinate!'})
+                this.setState({ actionError: 'Not enough tokens to deactivate user!'})
             }
-        } else if(action === 'coup') {
+        } else if(action === 'delete_user') {
             if(this.props.money >= 7) {
                 this.props.deductCoins(7);
-                this.pickingTarget('coup');
+                this.pickingTarget('delete_user');
             } else {
-                this.setState({ actionError: 'Not enough coins to coup!'})
+                this.setState({ actionError: 'Not enough tokens to delete user!'})
             }
         }
     }
@@ -69,17 +69,17 @@ export default class ActionDecision extends Component {
         } else if(this.props.money < 10) {
            controls = ( 
            <>   
-                <button onClick={() => this.chooseAction('income')}>Income</button>
-                <button onClick={() => this.deductCoins('coup')}>Coup</button>
-                <button onClick={() => this.chooseAction('foreign_aid')}>Foreign Aid</button>
-                <button id="captain" onClick={() => this.pickingTarget('steal')}>Steal</button>
-                <button id="assassin" onClick={() => this.deductCoins('assassinate')}>Assassinate</button>
-                <button id="duke" onClick={() => this.chooseAction('tax')}>Tax</button>
-                <button id="ambassador" onClick={() => this.chooseAction('exchange')}>Exchange</button>
+                <button onClick={() => this.chooseAction('basic_access')}>Basic Access</button>
+                <button onClick={() => this.deductCoins('delete_user')}>Delete User</button>
+                <button onClick={() => this.chooseAction('guest_access')}>Guest Access</button>
+                <button id="pm" onClick={() => this.pickingTarget('transfer_tokens')}>Transfer Tokens</button>
+                <button id="system_admin" onClick={() => this.deductCoins('deactivate_user')}>Deactivate User</button>
+                <button id="admin" onClick={() => this.chooseAction('collect_tokens')}>Collect Tokens</button>
+                <button id="contractor" onClick={() => this.chooseAction('exchange_roles')}>Exchange Roles</button>
            </> 
            )
-        } else { //money over 10, has to coup
-            controls = <button onClick={() => this.deductCoins('coup')}>Coup</button>
+        } else { //money over 10, has to delete user
+            controls = <button onClick={() => this.deductCoins('delete_user')}>Delete User</button>
         }
         return (<>
             <p className="DecisionTitle">Choose an action</p>

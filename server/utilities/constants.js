@@ -1,68 +1,68 @@
 const CardNames = {
-    DUKE: "duke",
-    ASSASSIN: "assassin",
-    CAPTAIN: "captain",
-    AMBASSADOR: "ambassador",
-    CONTESSA: "contessa",
+    ADMIN: "admin",
+    SYSTEM_ADMIN: "system_admin",
+    PM: "pm",
+    CONTRACTOR: "contractor",
+    ROOT_USER: "root_user",
     values: function () {
-        return [this.DUKE, this.ASSASSIN, this.CAPTAIN, this.AMBASSADOR, this.CONTESSA]
+        return [this.ADMIN, this.SYSTEM_ADMIN, this.PM, this.CONTRACTOR, this.ROOT_USER]
     }
- };
+};
  
 const Actions = {
-    income: {
+    basic_access: {
         influence: "all",
         blockableBy: [],
         isChallengeable: false,
         moneyDelta: 1
     },
-    foreign_aid: {
+    guest_access: {
         influence: "all",
-        blockableBy: [CardNames.DUKE],
+        blockableBy: [CardNames.ADMIN],
         isChallengeable: false,
         moneyDelta: 2
     },
-    coup: {
+    delete_user: {
         influence: "all",
         blockableBy: [],
         isChallengeable: false,
         moneyDelta: -7
     },
-    tax: {
-        influence: CardNames.DUKE,
+    collect_tokens: {
+        influence: CardNames.ADMIN,
         blockableBy: [],
         isChallengeable: true,
         moneyDelta: 3
     },
-    assassinate: {
-        influence: CardNames.ASSASSIN,
-        blockableBy: [CardNames.CONTESSA],
+    deactivate_user: {
+        influence: CardNames.SYSTEM_ADMIN,
+        blockableBy: [CardNames.ROOT_USER],
         isChallengeable: true,
         moneyDelta: -3
     },
-    exchange: {
-        influence: CardNames.AMBASSADOR,
+    exchange_roles: {
+        influence: CardNames.CONTRACTOR,
         blockableBy: [],
         isChallengeable: true,
         moneyDelta: 0
     },
-    steal: {
-        influence: CardNames.CAPTAIN,
-        blockableBy: [CardNames.AMBASSADOR, CardNames.AMBASSADOR],
+    transfer_tokens: {
+        influence: CardNames.PM,
+        blockableBy: [CardNames.CONTRACTOR, CardNames.PM],
         isChallengeable: true,
-        moneyDelta: 2 // EDGE CASE: if victim only has 1 or 0 coins
+        moneyDelta: 2
     }
 };
 
 const CounterActions = {
-    block_foreign_aid: {
-        influences: [CardNames.DUKE]
+    block_guest_access: {
+        influences: [CardNames.ADMIN]
     },
-    block_steal: {
-        influences: [CardNames.AMBASSADOR, CardNames.CAPTAIN]
+    block_transfer: {
+        influences: [CardNames.CONTRACTOR, CardNames.PM]
     },
-    block_assassinate: {
-        influences: [CardNames.CONTESSA]
+    block_deactivate: {
+        influences: [CardNames.ROOT_USER]
     },
 };
 

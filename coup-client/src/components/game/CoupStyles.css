@@ -294,34 +294,34 @@
     display: inline-block;
     font-size: 12px;
 }
-#captain {
-    background-color: #80C6E5;
-}
-#duke {
+#admin {
     background-color: #D55DC7;
 }
-#assassin {
+#system_admin {
     background-color: #2B2B2B;
 }
-#contessa {
+#pm {
+    background-color: #80C6E5;
+}
+#root_user {
     background-color: #E35646;
 }
-#ambassador {
+#contractor {
     background-color: #B4CA1F;
 }
-#captain-color {
-  color: #80C6E5;
-}
-#duke-color {
+#admin-color {
   color: #D55DC7;
 }
-#assassin-color {
+#system_admin-color {
   color: #2B2B2B;
 }
-#contessa-color {
+#pm-color {
+  color: #80C6E5;
+}
+#root_user-color {
   color: #E35646;
 }
-#ambassador-color {
+#contractor-color {
   color: #B4CA1F;
 }
 .DecisionTitle {
