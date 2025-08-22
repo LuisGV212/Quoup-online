@@ -294,35 +294,35 @@
     display: inline-block;
     font-size: 12px;
 }
-#captain {
-    background-color: #80C6E5;
+#admin {
+    background-color: #FFC425; /* Quire Yellow */
 }
-#duke {
-    background-color: #D55DC7;
+#system_admin {
+    background-color: #00030B; /* Quire Black */
 }
-#assassin {
-    background-color: #2B2B2B;
+#pm {
+    background-color: #009DDF; /* Blend Blue */
 }
-#contessa {
-    background-color: #E35646;
+#root_user {
+    background-color: #F68B1F; /* Blend Orange */
 }
-#ambassador {
-    background-color: #B4CA1F;
+#contractor {
+    background-color: #00A77E; /* Blend Green */
 }
-#captain-color {
-  color: #80C6E5;
+#admin-color {
+  color: #FFC425; /* Quire Yellow */
 }
-#duke-color {
-  color: #D55DC7;
+#system_admin-color {
+  color: #00030B; /* Quire Black */
 }
-#assassin-color {
-  color: #2B2B2B;
+#pm-color {
+  color: #009DDF; /* Blend Blue */
 }
-#contessa-color {
-  color: #E35646;
+#root_user-color {
+  color: #F68B1F; /* Blend Orange */
 }
-#ambassador-color {
-  color: #B4CA1F;
+#contractor-color {
+  color: #00A77E; /* Blend Green */
 }
 .DecisionTitle {
     text-align: left;

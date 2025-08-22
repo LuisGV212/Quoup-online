@@ -1,6 +1,6 @@
 {
-  "short_name": "Coup Online",
-  "name": "An online port of Coup",
+  "short_name": "Quoup Online",
+  "name": "An online version of Quoup",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#FFC425",
+  "background_color": "#FFFFFF"
 }

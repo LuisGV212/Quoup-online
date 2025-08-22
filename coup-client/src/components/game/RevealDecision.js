@@ -7,13 +7,13 @@ export default class RevealDecision extends Component {
 
         this.act = this.props.res.isBlock ? this.props.res.counterAction.counterAction : this.props.res.action.action
         this.actionMap = {
-            tax: ["duke"],
-            assassinate: ["assassin"],
-            exchange: ["ambassador"],
-            steal: ["captain"],
-            block_foreign_aid: ["duke"],
-            block_steal: ["ambassador", "captain"],
-            block_assassinate: ["contessa"],
+            collect_tokens: ["admin"],
+            deactivate_user: ["system_admin"],
+            exchange_roles: ["contractor"],
+            transfer_tokens: ["pm"],
+            block_guest_access: ["admin"],
+            block_transfer: ["contractor", "pm"],
+            block_deactivate: ["root_user"],
         }
     }
     
