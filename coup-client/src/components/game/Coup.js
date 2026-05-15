@@ -215,6 +215,14 @@ export default class Coup extends Component {
         root_user: '#D13E80',
         contractor: '#00A77E'
     }
+
+    roleMeta = {
+        admin: { label: 'Admin', icon: 'A', ability: 'Collect Tokens' },
+        pm: { label: 'PM', icon: 'P', ability: 'Transfer Tokens' },
+        system_admin: { label: 'System Admin', icon: 'S', ability: 'Deactivate User' },
+        root_user: { label: 'Root User', icon: 'R', ability: 'Block Deactivation' },
+        contractor: { label: 'Contractor', icon: 'C', ability: 'Exchange Roles' }
+    }
     
     render() {
         let actionDecision = null
@@ -236,7 +244,7 @@ export default class Coup extends Component {
             actionDecision = <ActionDecision doneAction={this.doneAction} deductCoins={this.deductCoins} name={this.props.name} socket={this.props.socket} money={this.state.players[this.state.playerIndex].money} players={this.state.players}></ActionDecision>
         }
         if(this.state.currentPlayer) {
-            currentPlayer = <p>It is <b>{this.state.currentPlayer}</b>'s turn</p>
+            currentPlayer = <p><span>Current Turn</span><b>{this.state.currentPlayer}</b></p>
         }
         if(this.state.revealingRes) {
             isWaiting = false;
@@ -267,21 +275,25 @@ export default class Coup extends Component {
         }
         if(this.state.playerIndex != null && !this.state.isDead) {
             influences = <>
-            <p>Your Privileges</p>
+            <p className="SectionLabel">Your Privileges</p>
                 {this.state.players[this.state.playerIndex].influences.map((influence, index) => {
-                    return  <div key={index} className="InfluenceUnitContainer">
-                                <span className="circle" style={{backgroundColor: `${this.influenceColorMap[influence]}`}}></span>
-                                <br></br>
-                                <h3>{influence}</h3>
+                    const role = this.roleMeta[influence] || { label: influence, icon: '?', ability: 'Unknown' };
+                    const color = this.influenceColorMap[influence] || '#707070';
+                    return  <div key={index} className="InfluenceUnitContainer" style={{borderColor: color}}>
+                                <span className="RoleIcon" style={{backgroundColor: color}}>{role.icon}</span>
+                                <div>
+                                    <h3>{role.label}</h3>
+                                    <p>{role.ability}</p>
+                                </div>
                             </div>
                     })
                 }
             </>
             
-            coins = <p>Coins: {this.state.players[this.state.playerIndex].money}</p>
+            coins = <p><span>Tokens</span><b>{this.state.players[this.state.playerIndex].money}</b></p>
         }
         if(isWaiting && !this.state.isDead) {
-            waiting = <p>Waiting for other players...</p>
+            waiting = <p className="WaitingCopy">Waiting for other players...</p>
         }
         if(this.state.disconnected) {
             return (
@@ -303,8 +315,12 @@ export default class Coup extends Component {
         return (
             <div className="GameContainer">
                 <div className="GameHeader">
+                    <div className="GameBrand">
+                        <span className="GameBrandSymbol">Q</span>
+                        <span>Quoup</span>
+                    </div>
                     <div className="PlayerInfo">
-                        <p>You are: {this.props.name}</p>
+                        <p><span>You are</span><b>{this.props.name}</b></p>
                         {coins}
                     </div>
                     <div className="CurrentPlayer">
@@ -314,24 +330,30 @@ export default class Coup extends Component {
                     <CheatSheetModal/>
                     <EventLog logs={this.state.logs}></EventLog>
                 </div>
-                <div className="InfluenceSection">
-                    {influences}
+                <div className="GameTable">
+                    <section className="TablePanel PlayerPanel">
+                        <PlayerBoard players={this.state.players} currentPlayer={this.state.currentPlayer}></PlayerBoard>
+                    </section>
+                    <main className="TablePanel ActionPanel">
+                        <div className="InfluenceSection">
+                            {influences}
+                        </div>
+                        <div className="DecisionsSection">
+                            {waiting}
+                            {revealDecision}
+                            {chooseInfluenceDecision}
+                            {actionDecision}
+                            {exchangeInfluences}
+                            {challengeDecision}
+                            {blockChallengeDecision}
+                            {blockDecision}
+                            {pass}
+                            {playAgain}
+                        </div>
+                        <b className="WinnerCopy">{this.state.winner}</b>
+                        {this.state.playAgain}
+                    </main>
                 </div>
-                <PlayerBoard players={this.state.players}></PlayerBoard>
-                <div className="DecisionsSection">
-                    {waiting}
-                    {revealDecision}
-                    {chooseInfluenceDecision}
-                    {actionDecision}
-                    {exchangeInfluences}
-                    {challengeDecision}
-                    {blockChallengeDecision}
-                    {blockDecision}
-                    {pass}
-                    {playAgain}
-                </div>
-                <b>{this.state.winner}</b>
-                {this.state.playAgain}
             </div>
         )
     }

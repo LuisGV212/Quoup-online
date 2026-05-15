@@ -1,124 +1,398 @@
-.PlayerInfo {
-    text-align: left;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    border: 2px solid #707070;
-    border-radius: 5px;
-    line-height: 40%;
-    width: fit-content;
-    padding-left: 10px;
-    padding-right: 20px;
+:root {
+  --quire-yellow: #FFC425;
+  --quire-black: #00030B;
+  --blend-pink: #D13E80;
+  --blend-purple: #3C4185;
+  --blend-orange: #F68B1F;
+  --blend-blue: #009DDF;
+  --blend-green: #00A77E;
+  --surface: #FFFFFF;
+  --surface-soft: #F4F5F7;
+  --line: #D8DCE2;
 }
 
-.Rules, .CheatSheet {
-  cursor: pointer;
-  text-align: left;
-  position: absolute;
-  left: 10px;
-  top: 80px;
-  /* border: 2px solid #707070; */
-  border-radius: 5px;
-  line-height: 40%;
-  width: fit-content;
-  padding-left: 5px;
-  padding-right: 5px;
-  background-color: #F2F2F2;
-  display: flex;
-  align-items: center;
+.GameContainer {
+  background:
+    linear-gradient(180deg, rgba(0, 3, 11, 0.96) 0%, rgba(0, 3, 11, 0.92) 260px, #f6f7f9 260px);
+  color: var(--quire-black);
+  min-height: 100vh;
+  padding: 18px;
+  box-sizing: border-box;
 }
 
-.HomeRules {
-  cursor: pointer;
-  text-align: center;
-  /* border: 2px solid #707070; */
-  border-radius: 5px;
-  line-height: 40%;
-  width: fit-content;
-  padding-left: 5px;
-  padding-right: 5px;
-  background-color: #F2F2F2;
-  display: flex;
+.GameHeader {
   align-items: center;
-  align-self: center;
+  color: #FFFFFF;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  margin: 0 auto 22px;
+  max-width: 1180px;
+  min-height: 78px;
+}
+
+.GameBrand {
+  align-items: center;
+  display: inline-flex;
+  font-size: 24px;
+  font-weight: 800;
+  gap: 10px;
+  justify-self: start;
+}
+
+.GameBrandSymbol {
+  align-items: center;
+  background: var(--quire-yellow);
+  border-radius: 8px;
+  color: var(--quire-black);
+  display: inline-flex;
+  font-size: 24px;
+  height: 42px;
   justify-content: center;
+  width: 42px;
+}
+
+.PlayerInfo {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  justify-self: end;
+  padding: 10px 12px;
+}
+
+.PlayerInfo p,
+.CurrentPlayer p {
+  margin: 0;
+}
+
+.PlayerInfo span,
+.CurrentPlayer span {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.PlayerInfo b,
+.CurrentPlayer b {
+  color: #FFFFFF;
+  display: block;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.CurrentPlayer {
+  background: var(--quire-yellow);
+  border-radius: 8px;
+  color: var(--quire-black);
+  justify-self: center;
+  min-width: 220px;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+.CurrentPlayer b,
+.CurrentPlayer span {
+  color: var(--quire-black);
+}
+
+.Rules,
+.CheatSheet,
+.HomeRules {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--quire-black);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 4px;
+  justify-content: center;
+  line-height: 1;
+  padding: 8px 10px;
+  width: fit-content;
+}
+
+.Rules {
+  justify-self: start;
 }
 
 .CheatSheet {
-  top: 110px;
+  justify-self: start;
+}
+
+.Rules p,
+.HomeRules p,
+.CheatSheet p {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.GameHeader > .Rules {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.GameHeader > .CheatSheet {
+  grid-column: 1;
+  grid-row: 2;
+  margin-left: 72px;
+}
+
+.GameTable {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.TablePanel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 3, 11, 0.09);
+}
+
+.PlayerPanel {
+  align-self: start;
+  padding: 14px;
+}
+
+.ActionPanel {
+  min-height: 520px;
+  padding: 18px;
+}
+
+.InfluenceSection {
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  margin-bottom: 18px;
+  padding: 14px;
+}
+
+.SectionLabel {
+  color: #4E5663;
+  font-size: 12px;
+  font-weight: 800;
+  grid-column: 1 / -1;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.InfluenceUnitContainer {
+  align-items: center;
+  background: #FFFFFF;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  min-height: 86px;
+  padding: 12px;
+  text-align: left;
+}
+
+.RoleIcon {
+  align-items: center;
+  border-radius: 8px;
+  color: #FFFFFF;
+  display: inline-flex;
+  flex: 0 0 46px;
+  font-size: 22px;
+  font-weight: 800;
+  height: 46px;
+  justify-content: center;
+}
+
+.InfluenceUnitContainer h3 {
+  font-size: 18px;
+  line-height: 1.15;
+  margin: 0 0 4px;
+  text-decoration: none;
+}
+
+.InfluenceUnitContainer p {
+  color: #606977;
+  font-size: 12px;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.DecisionsSection {
+  background: #FFFFFF;
+  border-radius: 8px;
+  min-height: 250px;
+  padding: 10px 0 0;
+}
+
+.DecisionTitle {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 14px;
+}
+
+.DecisionButtonsContainer {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.ActionCardButton,
+.DecisionsSection button,
+.startGameButton {
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--quire-black);
+  display: inline-flex;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  gap: 10px;
+  justify-content: flex-start;
+  min-height: 54px;
+  padding: 10px 12px;
+  text-align: left;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.ActionCardButton:hover,
+.DecisionsSection button:hover,
+.startGameButton:hover {
+  border-color: var(--quire-yellow);
+  box-shadow: 0 8px 22px rgba(0, 3, 11, 0.12);
+  transform: translateY(-1px);
+}
+
+.ActionIcon {
+  align-items: center;
+  background: var(--quire-black);
+  border-radius: 8px;
+  color: var(--quire-yellow);
+  display: inline-flex;
+  flex: 0 0 36px;
+  font-size: 15px;
+  font-weight: 800;
+  height: 36px;
+  justify-content: center;
+}
+
+.ActionCardButton b {
+  display: block;
+  font-size: 14px;
+}
+
+.ActionCardButton small {
+  color: #626A76;
+  display: block;
+  font-size: 11px;
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+.TargetButton {
+  border-left: 6px solid var(--player-color);
+}
+
+.WaitingCopy {
+  align-items: center;
+  background: var(--surface-soft);
+  border: 1px dashed #C5CBD3;
+  border-radius: 8px;
+  color: #687180;
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 170px;
+  margin: 0;
+}
+
+.WinnerCopy {
+  color: var(--blend-green);
+  display: block;
+  font-size: 24px;
+  margin-top: 16px;
+}
+
+.EventLogContainer {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 12px;
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: end;
+  min-width: 250px;
+  padding: 10px;
+  text-align: left;
+}
+
+.EventLogBody {
+  height: 92px;
+  overflow-y: auto;
+  padding-right: 3px;
+}
+
+.EventLogBody p {
+  line-height: 1.35;
+  margin: 0 0 6px;
+}
+
+.EventLogTitle {
+  color: var(--quire-yellow);
+  margin: 0 0 7px;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.new {
+  animation: fadeIn ease 0.35s;
 }
 
 .CheatSheetModal {
-  outline: none;
-  position: absolute;
-  top: 100px;
-  left: 5px;
-  right: 5px;
-  padding-top: 10px;
-  padding-left: 5px;
-  padding-right:5px;
   background-color: #FFFFFF;
+  border-radius: 8px;
+  inset: 30px;
+  outline: none;
+  overflow: auto;
+  padding: 16px;
+  position: absolute;
 }
 
 .CheatSheetContainer img {
-    margin-top: 5px;
-    width: 100%;
-    height: auto;
-}
-
-.Rules p, .HomeRules p, .CheatSheet p{
-  font-size: 12px;
-  margin: 8px;
-  /* margin: 0; */
-  /* padding-bottom: 5px; */
-  margin-left: 0px;
-  margin-right: 2px;
-  display: inline-block;
-}
-
-.RulesContent h1, h3 {
-  line-height: 5px;
-}
-
-.RulesContent h2 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.RulesContent h3 {
-  text-decoration: underline;
-}
-
-.RulesContainer {
-  overflow: hidden;
-  /* padding-bottom: 10px; */
-  /* height: 100%; */
-}
-
-.RulesContent {
-  /* line-height: 12px; */
-  /* height: fit-content; */
-  overflow-y: hidden;
-}
-
-.InfoIcon {
-  /* margin: 5 auto; */
-  /* margin-top: 5px; */
-  display: inline-block;
-}
-
-.CloseModalButtonContainer {
+  height: auto;
+  width: 100%;
 }
 
 .CloseModalButton {
-  top: 10px;
-  left: 10px;
-  padding: 0;
   background-color: #FFFFFF;
-  border: 0px;
+  border: 0;
+  padding: 0;
 }
 
-.cls-1, .cls-4 {
+.InfoIcon {
+  display: inline-block;
+}
+
+.cls-1,
+.cls-4,
+.cls-5,
+.cls-8 {
   fill: none;
 }
 
@@ -128,17 +402,13 @@
 
 .cls-2 {
   fill: #2c2c2c;
+  font-family: Open Sans, sans-serif;
   font-size: 16px;
-  font-family: MalayalamSangamMN, Malayalam Sangam MN;
 }
 
-.cls-3 {
+.cls-3,
+.cls-7 {
   stroke: none;
-}
-
-
-.cls-5, .cls-8 {
-  fill: none;
 }
 
 .cls-5 {
@@ -147,235 +417,42 @@
 
 .cls-6 {
   fill: #767676;
+  font-family: Open Sans, sans-serif;
   font-size: 16px;
-  font-family: MalayalamSangamMN, Malayalam Sangam MN;
 }
 
-.cls-7 {
-  stroke: none;
-}
-
-.InfluenceSection {
-    background-color: #F2F2F2;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    /* width: 300px; */
-    display: inline-block;
-}
-
-.InfluenceSection p{
-    text-align: center;
-}
-
-.InfluenceSection h3{
-    text-align: center;
-}
-
-.InfluenceUnitContainer {
-    width: 110px;
-    text-align: center;
-    margin-left: 15px;
-    margin-right: 15px;
-    line-height: 30%;
-    display: inline-block;
-}
-
-.CurrentPlayer {
-    text-align: right;
-    position: absolute;
-    right: 15px;
-    top: 5px;
-}
-
-.EventLogContainer {
-    border-right: 2px solid #707070;
-    /* border-left: 0px; */
-    padding-right: 5px;
-    padding-left: 5px;
-    position: absolute;
-    font-size: 12px;
-    right: 15px;
-    top: 60px;
-    text-align: right;
-    line-height: 40%;
-}
-.EventLogBody {
-    overflow-y: scroll;
-    height: 9VH;
-    padding-right: 3px;
-}
-.EventLogTitle {
-    margin: 0;
-    margin-bottom: 5px;
-}
-.bold {
-    font-weight: bold;
-}
-.new {
-    animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
-    -moz-animation: fadeIn ease 1s;
-    -o-animation: fadeIn ease 1s;
-    -ms-animation: fadeIn ease 1s;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
   }
-  @keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-  
-  @-moz-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-  
-  @-webkit-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-  
-  @-o-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-  
-  @-ms-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.GameHeader {
-    position: relative;
-    height: 22VH;
-}
-
-.GameContainer {
-    text-align: center;
-}
-
-.circle {
-    height: 30px;
-    width: 30px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
+@media (max-width: 860px) {
+  .GameHeader {
+    grid-template-columns: 1fr;
   }
-.DecisionsSection button {
-    min-width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    font-family: 'Muli', sans-serif;
-    background-color: #BCBCBC;
-    border: none;
-    color: white;
-    margin: 20px;
-    margin-bottom: 0px;
-    text-align: left;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-}
-#admin {
-    background-color: #FFC425; /* Quire Yellow */
-}
-#system_admin {
-    background-color: #00030B; /* Quire Black */
-}
-#pm {
-    background-color: #009DDF; /* Blend Blue */
-}
-#root_user {
-    background-color: #F68B1F; /* Blend Orange */
-}
-#contractor {
-    background-color: #00A77E; /* Blend Green */
-}
-#admin-color {
-  color: #FFC425; /* Quire Yellow */
-}
-#system_admin-color {
-  color: #00030B; /* Quire Black */
-}
-#pm-color {
-  color: #009DDF; /* Blend Blue */
-}
-#root_user-color {
-  color: #F68B1F; /* Blend Orange */
-}
-#contractor-color {
-  color: #00A77E; /* Blend Green */
-}
-.DecisionTitle {
-    text-align: left;
-    margin-left: 22px;
-}
 
-@media only screen and (min-width: 1024px) {
-    .ReactModal__Content {
-      width: 60%;
-      margin: auto;
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-    .PlayerInfo {
-      left: 10VW;
-      top: 5VH;
-    }
-    .CurrentPlayer {
-        text-align: right;
-        position: absolute;
-        right: 10VW;
-        top: 5VH;
-    }
-    .Rules{
-      left: 10VW;
-      top: 17VH;
-    }
-    .CheatSheet{
-      left: 10VW;
-      top: 22VH;
-    }
-    .CheatSheetModal {
-      position: absolute;
-      top: 40px;
-      left: 40px;
-      right: 40px;
-      background-color: #FFFFFF;
-    }
-    .EventLogContainer {
-        text-align: right;
-        position: absolute;
-        right: 10VW;
-        top: 10VH;
-    }
-    .GameHeader {
-        height: 15VH;
-    }
-    .DecisionTitle {
-        margin-left: 10VW;
-    }
-    .DecisionButtonsContainer  {
-        text-align: center;
-        width: 80%;
-        margin-left: 10%;
-    }
+  .GameBrand,
+  .PlayerInfo,
+  .CurrentPlayer,
+  .EventLogContainer {
+    justify-self: stretch;
   }
+
+  .GameHeader > .Rules,
+  .GameHeader > .CheatSheet,
+  .EventLogContainer {
+    grid-column: auto;
+    grid-row: auto;
+    margin-left: 0;
+  }
+
+  .GameTable {
+    grid-template-columns: 1fr;
+  }
+}

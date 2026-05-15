@@ -1,26 +1,50 @@
-.PlayerBoardItem{
-    background-color: #73C373;
-    margin-bottom: 20px;
-    padding: 5px;
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
-    border-radius: 5px;
-}
-
-.PlayerBoardItem h2{
-    margin-top: 10px;
-    font-weight: lighter;
-    color: white;
-    line-height: 80%;
-}
-
-.PlayerBoardItem p{
-    line-height: 50%;
-    font-weight: regular;
-    color: white;
-}
-
 .PlayerBoardContainer {
-    
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+.PlayerBoardContainer::before {
+  color: #606977;
+  content: "Players";
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.PlayerBoardItem {
+  background: #FFFFFF;
+  border: 1px solid #D8DCE2;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 8px 1fr;
+  overflow: hidden;
+  padding: 0;
+}
+
+.PlayerBoardItem.isCurrent {
+  border-color: #FFC425;
+  box-shadow: 0 0 0 3px rgba(255, 196, 37, 0.24);
+}
+
+.PlayerColorRail {
+  background: var(--player-color);
+  grid-row: 1 / 4;
+}
+
+.PlayerBoardItem h2 {
+  color: #00030B;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 12px 12px 6px;
+}
+
+.PlayerBoardItem p {
+  color: #606977;
+  font-size: 13px;
+  line-height: 1.2;
+  margin: 0 12px 8px;
 }
