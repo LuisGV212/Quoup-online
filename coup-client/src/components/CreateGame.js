@@ -35,11 +35,9 @@ export default class CreateGame extends Component {
         const bind = this
         const socket = io(`${baseUrl}/${this.state.roomCode}`);
         this.setState({ socket });
-        console.log("socket created")
         socket.emit('setName', this.state.name);
         
         socket.on("joinSuccess", function() {
-            console.log("join successful")
             bind.setState({ 
                 isLoading: false,
                 isInRoom: true
@@ -47,16 +45,13 @@ export default class CreateGame extends Component {
         })
 
         socket.on("joinFailed", function(err) {
-            console.log("join failed, cause: " + err);
             bind.setState({ isLoading: false });
         })
 
         socket.on("leader", function() {
-            console.log("You are the leader")
         })
 
         socket.on('partyUpdate', (players) => {
-            console.log(players)
             this.setState({ players })
             if(players.length >= 2 && players.map(x => x.isReady).filter(x => x === true).length === players.length) { //TODO CHANGE 2 BACK TO 3
                 this.setState({ canStart: true })
@@ -66,14 +61,12 @@ export default class CreateGame extends Component {
         })
 
         socket.on('disconnected', function() {
-            console.log("You've lost connection with the server")
         });
     }
 
     createParty = () => {
         if(this.state.name === '') {
             //TODO  handle error
-            console.log('Please enter a name');
             this.setState({ errorMsg: 'Please enter a name' });
             this.setState({ isError: true });
             return
@@ -83,13 +76,11 @@ export default class CreateGame extends Component {
         const bind = this;
         axios.get(`${baseUrl}/createNamespace`)
             .then(function (res) {
-                console.log(res);
                 bind.setState({ roomCode: res.data.namespace, errorMsg: '' });
                 bind.joinParty();
             })
             .catch(function (err) {
                 //TODO  handle error
-                console.log("error in creating namespace", err);
                 bind.setState({ isLoading: false });
                 bind.setState({ errorMsg: 'Error creating room, server is unreachable' });
                 bind.setState({ isError: true });

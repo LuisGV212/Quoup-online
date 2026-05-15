@@ -15,7 +15,6 @@ export default class ChallengeDecision extends Component {
             challengee: this.props.action.source,
             challenger: this.props.name
         }
-        console.log(res)
         this.props.socket.emit('g-challengeDecision', res);
         this.props.doneChallengeVote();
     }

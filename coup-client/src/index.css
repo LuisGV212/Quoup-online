@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #FFFFFF;
+  color: #00030B;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,7 +12,7 @@ code {
 }
 
 p, b, h1,h2,h3{
-  font-family: 'Muli', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 input {
@@ -74,18 +74,48 @@ button{
   top: 8VH;
 }
 
+.brandMark {
+  align-items: center;
+  color: #00030B;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.brandSymbol {
+  align-items: center;
+  background-color: #FFC425;
+  border-radius: 5px;
+  display: inline-flex;
+  font-size: 32px;
+  font-weight: 800;
+  height: 54px;
+  justify-content: center;
+  width: 54px;
+}
+
+.brandWord {
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.homeContainer h1 {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.homeContainer p {
+  font-size: 16px;
+  margin-top: 0;
+}
+
 .homeModalContainer {
   margin: auto;
   margin-top: 10px;
   display: block;
   width: 54px;
-}
-
-.homeContainer img{
-  width: 100px;
-  height: 100px;
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 .home{

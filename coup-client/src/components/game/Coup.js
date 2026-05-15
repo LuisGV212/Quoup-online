@@ -9,7 +9,6 @@ import ChooseInfluence from './ChooseInfluence';
 import ExchangeInfluences from './ExchangeInfluences';
 import './CoupStyles.css';
 import EventLog from './EventLog';
-import ReactModal from 'react-modal';
 import CheatSheetModal from '../CheatSheetModal';
 import RulesModal from '../RulesModal';
 
@@ -60,7 +59,6 @@ export default class Coup extends Component {
             players = players.filter(x => !x.isDead);
             let playerIndex = null;
             for(let i = 0; i < players.length; i++) {
-                console.log(players[i].name, this.props.name)
                 if(players[i].name === this.props.name) {
                     playerIndex = i;
                     break;
@@ -71,12 +69,10 @@ export default class Coup extends Component {
             }else {
                 this.setState({ isDead: false})
             }
-            console.log(playerIndex)
             bind.setState({playerIndex, players});
             
         });
         this.props.socket.on('g-updateCurrentPlayer', (currentPlayer) => {
-            console.log('currentPlayer: ', currentPlayer)
             bind.setState({ currentPlayer });
         });
         this.props.socket.on('g-addLog', (log) => {
@@ -135,7 +131,6 @@ export default class Coup extends Component {
              }
         });
         this.props.socket.on('g-chooseReveal', (res) => {
-            console.log(res)
             bind.setState({ revealingRes: res});
         });
         this.props.socket.on('g-chooseInfluence', () => {
@@ -197,31 +192,28 @@ export default class Coup extends Component {
                 isChallenging: false,
                 action: this.state.action
             }
-            console.log(res)
             this.props.socket.emit('g-challengeDecision', res);
         }else if(this.state.blockChallengeRes != null) { //BlockChallengeDecision
             let res = {
                 isChallenging: false
             }
-            console.log(res)
             this.props.socket.emit('g-blockChallengeDecision', res);
         }else if(this.state.blockingAction !== null) { //BlockDecision
             const res = {
                 action: this.state.blockingAction,
                 isBlocking: false
             }
-            console.log(res)
             this.props.socket.emit('g-blockDecision', res)
         }
         this.doneChallengeBlockingVote();
     }
 
     influenceColorMap = {
-        duke: '#D55DC7',
-        captain: '#80C6E5',
-        assassin: '#2B2B2B',
-        contessa: '#E35646',
-        ambassador: '#B4CA1F'
+        admin: '#FFC425',
+        pm: '#009DDF',
+        system_admin: '#00030B',
+        root_user: '#D13E80',
+        contractor: '#00A77E'
     }
     
     render() {
@@ -275,7 +267,7 @@ export default class Coup extends Component {
         }
         if(this.state.playerIndex != null && !this.state.isDead) {
             influences = <>
-            <p>Your Influences</p>
+            <p>Your Privileges</p>
                 {this.state.players[this.state.playerIndex].influences.map((influence, index) => {
                     return  <div key={index} className="InfluenceUnitContainer">
                                 <span className="circle" style={{backgroundColor: `${this.influenceColorMap[influence]}`}}></span>

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import CreateGame from './components/CreateGame';
 import './App.css';
 import ReactGA from 'react-ga';
@@ -7,15 +6,16 @@ import ReactGA from 'react-ga';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import JoinGame from './components/JoinGame';
 import Home from './components/Home';
 
 const trackingId = process.env.REACT_APP_GOOGLE_TRACKING_ID || '';
-ReactGA.initialize(trackingId);
-ReactGA.pageview('/homepage');
+if (trackingId) {
+  ReactGA.initialize(trackingId);
+  ReactGA.pageview('/homepage');
+}
 
 function App() {
 

@@ -27,7 +27,6 @@ export default class RevealDecision extends Component {
             challenger: this.props.res.challenger,
             isBlock: this.props.res.isBlock
         }
-        console.log(res)
         this.props.socket.emit('g-revealDecision', res);
         this.props.doneReveal();
     }
@@ -38,7 +37,7 @@ export default class RevealDecision extends Component {
         })
         return ( 
             <div>
-                <p>Your <b>{this.act}</b> has been challenged! If you don't reveal {this.actionMap[this.act].join(' or ')} you'll lose influence! </p>
+                <p>Your <b>{this.act}</b> has been challenged! If you don't reveal {this.actionMap[this.act].join(' or ')} you'll lose a privilege! </p>
                 {influences}
             </div>
         )

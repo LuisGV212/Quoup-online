@@ -17,8 +17,7 @@ buildDeck = () => {
 
 function addToDeck(cardName, deck) {
     if (!cardName || !deck) {
-        console.log("cardName and deck must not be undefined.")
-        return;
+        throw new Error("cardName and deck must not be undefined.");
     }
     for (let i = 0; i < 3; i++) {
         deck.push(cardName);
@@ -27,7 +26,7 @@ function addToDeck(cardName, deck) {
 
 shuffleArray = (arr) => {
     if (!arr) {
-        console.log(`arr must not be undefined. arr was ${arr}`);
+        throw new Error(`arr must not be undefined. arr was ${arr}`);
     }
 
     for(let i = 0; i < arr.length*2; i++) {
@@ -68,7 +67,6 @@ buildPlayers = (players) => {
         x.color = colors.pop();
         delete x.isReady;
     });
-    console.log(players);
     return players;
 }
 

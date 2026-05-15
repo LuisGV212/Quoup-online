@@ -22,14 +22,12 @@ export default class ActionDecision extends Component {
                 source: this.props.name
             }
         }
-        console.log(res)
         
         this.props.socket.emit('g-actionDecision', res)
         this.props.doneAction();
     }
 
     deductCoins = (action) => {
-        console.log(this.props.money, action)
         if(action === 'deactivate_user') {
             if(this.props.money >= 3) {
                 this.props.deductCoins(3);

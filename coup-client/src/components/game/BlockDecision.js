@@ -21,7 +21,6 @@ export default class BlockDecision extends Component {
                 source: this.props.name
             }
         }
-        console.log(res)
         
         this.props.socket.emit('g-actionDecision', res)
         this.props.doneAction();
@@ -37,7 +36,7 @@ export default class BlockDecision extends Component {
         } else if(block === 'block_deactivate') {
             resClaim = 'root_user'
         } else {
-            console.error('unknown claim, line 40')
+            return
         }
 
         const res = {
@@ -51,7 +50,6 @@ export default class BlockDecision extends Component {
             blocker: this.props.name,
             isBlocking: true
         }
-        console.log(res)
         this.props.socket.emit('g-blockDecision', res)
         this.props.doneBlockVote();
     }
@@ -61,7 +59,6 @@ export default class BlockDecision extends Component {
             action: this.props.action,
             isBlocking: false
         }
-        console.log(res)
         this.props.socket.emit('g-blockDecision', res)
         this.props.doneBlockVote();
     }

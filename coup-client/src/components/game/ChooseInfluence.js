@@ -8,7 +8,6 @@ export default class ChooseInfluence extends Component {
             influence: influence,
             playerName: this.props.name
         }
-        console.log(res)
         this.props.socket.emit('g-chooseInfluenceDecision', res);
         this.props.doneChooseInfluence();
     }
@@ -19,7 +18,7 @@ export default class ChooseInfluence extends Component {
         })
         return ( 
             <div>
-                <p className="DecisionTitle">Choose an influence to lose </p>
+                <p className="DecisionTitle">Choose a privilege to lose </p>
                 {influences}
             </div>
         )

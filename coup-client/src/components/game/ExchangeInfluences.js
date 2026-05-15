@@ -33,7 +33,7 @@ export default class ExchangeInfluences extends Component {
         })
         return ( 
             <div>
-                <p className="DecisionTitle">Choose which influence(s) to keep</p>
+                <p className="DecisionTitle">Choose which privilege(s) to keep</p>
                 {influences}
             </div>
         )

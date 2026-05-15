@@ -12,7 +12,6 @@ export default class BlockChallengeDecision extends Component {
             challengee: this.props.counterAction.source,
             challenger: this.props.name
         }
-        console.log(res)
         this.props.socket.emit('g-blockChallengeDecision', res);
         this.props.doneBlockChallengeVote();
     }

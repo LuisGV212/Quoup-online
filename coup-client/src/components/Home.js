@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import chicken from "../assets/Chicken.svg"
 import RulesModal from './RulesModal';
 
 export default class Home extends Component {
@@ -8,9 +7,12 @@ export default class Home extends Component {
         return (
             <>
             <div className="homeContainer">
-                <h1>Welcome to Coup</h1>
-                <p>A game of deduction and deception</p>
-                <img src={chicken} alt="chicken-leg"/>
+                <div className="brandMark" aria-label="Quoup">
+                    <span className="brandSymbol">Q</span>
+                    <span className="brandWord">Quoup</span>
+                </div>
+                <h1>Team strategy in five roles</h1>
+                <p>A Quire-themed game of access, deduction, and deception.</p>
                 <div className="input-group-btn">
                     <Link className="home" to="/create" >Create Game</Link>
                 </div>
@@ -26,8 +28,8 @@ export default class Home extends Component {
 
                 
             </div>
-            <p className="footer">Made by <a className="website-link" href="https://github.com/cheneth" target="_blank" rel="noopener noreferrer">Ethan Chen</a></p>
-            <p className="version-number">Beta v0.9</p>
+            <p className="footer">Built for Quire team play</p>
+            <p className="version-number">Quoup beta</p>
             </>
         )
     }
